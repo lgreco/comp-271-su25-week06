@@ -1,28 +1,8 @@
-# COMP 271 SU25 WEEK 05
+# COMP 271 SU25 WEEK 06
 
-This assignment has **THREE** parts: a **midterm review part,** a coding part based on current material we discuss in class and a reflection part to evaluate work you have already submitted.
+This assignment has two parts: a coding part based on current material we discuss in class and a reflection part to evaluate work you have already submitted.
 
 
-## MIDTERM REVIEW
-
-*Ungrading* is an assessment technique that measures learning and professional development. Learning is assessed by how you learn from your mistakes. Professional development is assessed by your overall engagement with the course.
-
-Looking at the first five assignments, discuss how you learned from any mistakes you made. Repeating mistakes is a sign that your learning needs to be improved. If you have repeated mistakes, discuss how you learning will be improved in the second half of the course. Typical mistakes for this discussion include:
-* code that doesn't compile (even in one assignment);
-* lack of comments;
-* lack of Javadoc;
-* Programmer Pact violations;
-* Missed assignments (even when due to not committing/synchronizing your CodeSpaces);
-
-Looking at your course engagement over the first six weeks, discuss how you've managed so far. The ideal standard is that you treat the course as a job that you like, that you wish to keep, and in which you aspire to grow and be promoted. Factors to consider include:
-* Timeliness -- joining the class meeting on time
-* Consistency -- not missing classes (except for university-justified absences)
-* Participation -- asking questions, answering questions
-* Proactiveness -- each out to the instructor with any difficulties you encounter, in a way that allows a timely resolution
-* Initiative -- trying additiona problems from the book and discussing them with the instructor; learning something new, like writing your reflections in MarkDown.
-* Commitment: studying/working on the course for ~3 hours per hour class-hour, i.e., 9 hours per week in addition to coming to class.
-
-Your discussion for the above should be in the form of a well-written essay, 200-300 words. You may include it in your week05 assignemnt as `midterm_review.md`.
 
 
 ## Standing requirements
@@ -41,37 +21,16 @@ There is no final exam for the course. There will be a final assignemnt that wil
 
 ## Code
 
-You'll work with classes `DynamicArray.java` and `DynamicArray_Implementation.java`. There are 6 tasks in this assignment.
+You'll work with classes `DynamicArray.java` and interfaces `Xifo.java`, `Fifo.java`, and `Lifo.java`.
 
 
-### Complete method `int indexOf(String string)`
-This method should return the index position of the given `string`, in the underlying array. If the `string` is not present, the method should return -1.
-
-
-### Complete method `boolean contains(String string)`
-The method should return `true` if the `string` is present in the underlying array and `false` otherwise.
-
-
-### Complete method `int countOf(String string)`
-The method should return the number of times the given `string` appears in the underlying array. If the `string` is not present, the method returns 0.
-
-
-### Complete method `String remove(int index)`
-The method removes and returns the contents at the `index` position of the underlying array. It's important to shift the elements after the removed string one position to the left.
-
-
-### Complete method `String remove(String string)`
-The method removes and returns the contents of the first element in the underlying array that contains the give `string`. If the `string` is not present, the method shall return `null`.
-
-
-### Complete method `String toString()`
-Be creative; try to avoid magic values as much as possible. Remember that Loyola is like Hogwarts: *help will always be given at Hogwarts to those who ask for it.*
+### 
 
 ---
 
 ## Study
 
-From the BJP textbook Chapter 10; or [Ch. 6 from Collins’ book](https://learning.oreilly.com/library/view/data-structures-and/9780470482674/13-chapter06.html). In addition, you should be up to speed with the following.
+From the BJP textbook Chapter 14; or [Ch. 8 from Collins’ book](https://learning.oreilly.com/library/view/data-structures-and/9780470482674/15-chapter08.html). In addition, you should be up to speed with the following.
 
 * Chapter 3.1 (about method overloading) (alternatively Java's [tutorial on methods](https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html))
 * Chapter 18.2 from the BJP textbook (or at the very least Leo’s notes titled “What’s Realistic”)
