@@ -24,7 +24,17 @@ There is no final exam for the course. There will be a final assignemnt that wil
 You'll work with classes `DynamicArray.java` and interfaces `Xifo.java`, `Fifo.java`, and `Lifo.java`.
 
 
-### 
+### Complete class `Stack.java`. 
+The class implements three interfaces. The standard Java Comparable interface, and two interfaces of our own design: `Xifo` and `Lifo`.
+
+*Hint:* you may want to modify `DynamicArray` with an overloaded method for `add`.
+
+
+### Complete class `Queue.java`. 
+The class implements three interfaces. The standard Java Comparable interface, and two interfaces of our own design: `Xifo` and `Fifo`.
+
+### Testing your code
+When you are ready to test your code, please send an email to Leo.
 
 ---
 
@@ -32,6 +42,7 @@ You'll work with classes `DynamicArray.java` and interfaces `Xifo.java`, `Fifo.j
 
 From the BJP textbook Chapter 14; or [Ch. 8 from Collins’ book](https://learning.oreilly.com/library/view/data-structures-and/9780470482674/15-chapter08.html). In addition, you should be up to speed with the following.
 
+* Java's [Comparable interface](https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html)
 * Chapter 3.1 (about method overloading) (alternatively Java's [tutorial on methods](https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html))
 * Chapter 18.2 from the BJP textbook (or at the very least Leo’s notes titled “What’s Realistic”)
 * Chapter 8 from the BJP textbook (or at the very least Java’s tutorial on Classes and Objects)
@@ -41,7 +52,7 @@ From the BJP textbook Chapter 14; or [Ch. 8 from Collins’ book](https://learni
 
 ## Reflect
 
-Compare your code from the previous assignment with [Leo's posted solutions](https://github.com/lgreco/lgreco-comp-271-su25-week04/blob/main/solution_DoubleLinkedList.java).
+Compare your code from the previous assignment with [Leo's posted solutions](./DynamicArray.java).
 
 Then write a brief reflection (100-300 words) discussing what you got right, what you got close but not quite, and where you may have missed the mark. Also discuss what you learned by comparing your code to the posted solutions. The reflection must be substantive. For example, you may find that you missed something in the assignment because you did not put enough time in it or because you did not start work early. It's fine to acknowledge these issues. It is also important to propose a plan to avoid them in the future. And, in later reflections, evaluate how that plan worked.
 
@@ -51,76 +62,26 @@ In the assignment for WEEK 04 you were given class `DoubleLinkedList` and asked 
 ### TECHNICAL NOTES FOR UNGRADING
 
 
-#### Complete `void add(Node node)` in `DoubleLinkedList` 
+#### `void add(String)`
+The method must first check if there is room for one more element in the object. If not, the underlying array must be resized with `private resize()` first. Don't forget to increment the `occupancy` after the addition of the new element.
 
-This required use of the newly introduced field attribute `tail`. Your `add` method should not have a while loop. Instead it should use the `tail` reference to extend the linked list. Initially, you may be tempted to write the solution as:
-```java
-public void add(Node node) {
-    if (this.head == null) {
-        this.head = node;
-        this.tail = node;
-    } else {
-        this.tail.setNext(node);
-        node.setPrevious(this.tail); 
-        this.tail = node;
-    }
-    this.size++;
-}
-```
-Upon review, you may also notice that the `tail` aassignment occurs on both branches of the if statement. Therefore, it can (and should) be factored out:
-```java
-public void add(Node node) {
-    if (this.head == null) {
-        this.head = node;
-    } else {
-        this.tail.setNext(node);
-        node.setPrevious(this.tail); 
-    }        
-    this.tail = node;
-    this.size++;
-}
-```
-Because we are dealing with a **double** linked list, it is important to assign the `previous` pointer as well, as shown above.
+### `int indexOf(String)`
+Check for violations of the Pact, and specifically: multiple `return` statements (even two is one too many), or a `break` statement in a loop. Also it's important to check the elements up to and not including `this.occupancy`. Anything past this position should be `null`.
 
+### `boolean contains(String)`
+This is practically a wrapper for `indexOf`. If the string is present of the array, its `indexOf` will be > -1. There should be no additional code here, other than a call to `indexOf`.
 
-#### Complete `void add(String value)` in `DoubleLinkedList`
-If your code has more than one line, you probably got it wrong. The solution here is what is called a *wrapper function.* Such functions call existing functions to simplify a task, provide additional behavior, etc. In this case, we wrap the existing function `void add(Node node)` as follows:
-```java
-public void add(String string) {
-    this.add(new Node(string));
-}
-```
-A wrapper function delegates its work to another function. Here we create a new `Node` for the given `string` and then ask the existing `add` function to do its 
-job.
+### `int countOf(String)`
+This requires a `for`-loop to check every used position in the underlying array. The loop should run up to (but not including) `this.occupancy`.
 
+### `String remove(int)`
+The method should make sure that the provided index value is legitimate. The method should also shift the elements to the right of the removed element, one position to the right.
 
-#### Complete `int compareTo(DoubleLinkedList other)` in `DoubleLinkedList`
-The obvious choice here is to
-```java
-return this.size - other.size;
-```
-If you came up with a different metric, I would love to hear from you. The more weird your metric is, the more curious I am about it.
+### `String remove(String)`
+This should be a wrapper to `remove(int)`, with no other code in it.
 
-
-#### Write an `indexOf` method in `DoubleLinkedList``
-There are two potential errors here. First, the use of a second `return` statement that would violate the Programmer's Pact. Second, an *off-by-one error.* The idea is to write a loop that traverses the list and counts the steps. When the target node is found, the loop ends. The loop also ends when it reaches the end of the list without finding anything. But let's focus on the positive side: we found the target node. As the loop exits, the counter variable used it in, is incremented by 1. For example, if the target node is at position 4, the counter **may be** showing 5. This depends on where we evaluate the boolean expression that stops the loop. We have to take this into consideration and return `counter-1` to compensate for the error.
-
-
-#### Write a `contains` method in `DoubleLinkedList`
-This will be another wrapper function, returning a call to `indexOf`:
-```java
-return this.indexOf(value) != -1; // > -1 ok too
-```
-
-You may be tempted to write
-```java
-return this.indexOf(value) > 0;
-```
-This would be wrong as it exludes the first node of the list (whose position is at 0).
-
-
-#### Report the number of nodes in a `DoubleLinkedList`
-This is also a one-liner method that returns the current value of `this.size`.
+### `String toString()`
+It's ok if you didn't use `StringBuilder`. But is your output neat looking?
 
 
 #### Does your code compile? 
