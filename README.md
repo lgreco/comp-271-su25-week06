@@ -65,22 +65,22 @@ In the assignment for WEEK 04 you were given class `DoubleLinkedList` and asked 
 #### `void add(String)`
 The method must first check if there is room for one more element in the object. If not, the underlying array must be resized with `private resize()` first. Don't forget to increment the `occupancy` after the addition of the new element.
 
-### `int indexOf(String)`
+#### `int indexOf(String)`
 Check for violations of the Pact, and specifically: multiple `return` statements (even two is one too many), or a `break` statement in a loop. Also it's important to check the elements up to and not including `this.occupancy`. Anything past this position should be `null`.
 
-### `boolean contains(String)`
+#### `boolean contains(String)`
 This is practically a wrapper for `indexOf`. If the string is present of the array, its `indexOf` will be > -1. There should be no additional code here, other than a call to `indexOf`.
 
-### `int countOf(String)`
+#### `int countOf(String)`
 This requires a `for`-loop to check every used position in the underlying array. The loop should run up to (but not including) `this.occupancy`.
 
-### `String remove(int)`
+#### `String remove(int)`
 The method should make sure that the provided index value is legitimate. The method should also shift the elements to the right of the removed element, one position to the right.
 
-### `String remove(String)`
+#### `String remove(String)`
 This should be a wrapper to `remove(int)`, with no other code in it.
 
-### `String toString()`
+#### `String toString()`
 It's ok if you didn't use `StringBuilder`. But is your output neat looking?
 
 
@@ -96,7 +96,7 @@ If not, the assignment is incomplete. If your assignment is incomplete you must 
 
 If your code is incomplete for any of the reasons above, please reflect on the cause. Did you start late? Did you hit a roadblock but did not ask for help? Did you not read the Programmer's Pact? Something else?
 
-### Are there any Pact violations?
+#### Are there any Pact violations?
 You should always check your code versus the Programmer's Pact and verify that you have not violated any of its stipulations.
 
 #### How to submit
