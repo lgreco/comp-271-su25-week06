@@ -3,8 +3,6 @@
 This assignment has two parts: a coding part based on current material we discuss in class and a reflection part to evaluate work you have already submitted.
 
 
-
-
 ## Standing requirements
 
 * **Programmers Pact:** Your work must be compliant with the [Programmers Pact](./ProgrammerPact.pdf). 
@@ -34,7 +32,7 @@ The class implements three interfaces. The standard Java Comparable interface, a
 The class implements three interfaces. The standard Java Comparable interface, and two interfaces of our own design: `Xifo` and `Fifo`.
 
 ### Testing your code
-When you are ready to test your code, please send an email to Leo.
+When you are ready to test your code, please send an email to Leo, requesting the test class. Assignments that have not been tested with the test class will be considered incomplete. Allow up to 12 hours for your email to be processed.
 
 ---
 
@@ -94,8 +92,10 @@ If not, the assignment is incomplete. If your assignment is incomplete you must 
 
 If your code is incomplete for any of the reasons above, please reflect on the cause. Did you start late? Did you hit a roadblock but did not ask for help? Did you not read the Programmer's Pact? Something else?
 
+
 #### Are there any Pact violations?
 You should always check your code versus the Programmer's Pact and verify that you have not violated any of its stipulations.
+
 
 #### How to submit
 
