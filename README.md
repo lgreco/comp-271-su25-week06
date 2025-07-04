@@ -96,6 +96,8 @@ If not, the assignment is incomplete. If your assignment is incomplete you must 
 
 If your code is incomplete for any of the reasons above, please reflect on the cause. Did you start late? Did you hit a roadblock but did not ask for help? Did you not read the Programmer's Pact? Something else?
 
+### Are there any Pact violations?
+You should always check your code versus the Programmer's Pact and verify that you have not violated any of its stipulations.
 
 #### How to submit
 
