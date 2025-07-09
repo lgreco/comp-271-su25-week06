@@ -35,6 +35,11 @@ public class DynamicArray {
         return this.occupancy;
     } // method getOccupancy
 
+    /** Getter exposing the first element of underlying array */
+    public String getFirst() {
+        return this.underlying[0];
+    }
+
     /**
      * Resize the underlying array as needed.
      * 
@@ -66,6 +71,27 @@ public class DynamicArray {
         this.underlying[this.occupancy] = string;
         this.occupancy++;
     } // method add
+
+    /**
+     * As a string to a specific position, first moving everyting to the right of
+     * that position one place to the right.
+     */
+    public void add(String e, int position) {
+        // Is there room for one more element?
+        if (this.occupancy == this.underlying.length) {
+            this.resize();
+        }
+        // Move everything to the right of the target position one place to the right.
+        // Since we are shifting to the right, it's important to traverse the array
+        // elements from right to left to avoid duplications.
+        for (int i = this.occupancy; i >= position; i++) {
+            this.underlying[i] = this.underlying[i-1];
+        }
+        // Position clear to overwrite
+        this.underlying[position] = e;
+        // update occupancy
+        this.occupancy++;
+    }
 
     /**
      * method to find the position of an element in the underlying array
